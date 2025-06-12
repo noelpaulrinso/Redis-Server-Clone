@@ -121,7 +121,7 @@ static bool try_one_request(Conn *conn) {
     buf_append(conn->outgoing, request, len);
 
     
-    buf_consume(conn->incoming, 4 + len)
+    buf_consume(conn->incoming, 4 + len);
     
     return true;        
 }
@@ -134,7 +134,7 @@ static void handle_write(Conn *conn) {
         return; 
     }
     if (rv < 0) {
-        msg_errno("write() error")
+        msg_errno("write() error");
         conn->want_close = true;    
         return;
     }
